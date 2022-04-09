@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Add, commit, and push to the current branch
+
+git add .
+git commit
+
+GOOD=$(git status -s)
+
+if [[ -z $(git status -s) ]]
+then
+    BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+    printf "pushing to branch $BRANCH...\n"
+    git push origin $BRANCH
+else
+    echo "Aborting push since tree is not clean."
+fi

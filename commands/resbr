@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Resets main branch to remote when something gets messed up. 
+git stash
+git fetch origin
+git reset --hard origin/master
