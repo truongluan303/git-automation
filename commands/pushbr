@@ -4,10 +4,10 @@ DIR=$PWD
 # check if a git repo
 if [[ -e $DIR/.git ]]
 then
-# Add, commit, and push to the current branch
+    # Add, commit, and push to the current branch
     git add .
     git commit
-
+    # only push if commit was successfull
     if [[ -z $(git status -s) ]]
     then
         BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
