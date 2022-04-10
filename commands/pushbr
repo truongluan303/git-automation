@@ -1,17 +1,21 @@
 #!/bin/bash
 
-# Add, commit, and push to the current branch
-
-git add .
-git commit
-
-GOOD=$(git status -s)
-
-if [[ -z $(git status -s) ]]
+DIR=$PWD
+# check if a git repo
+if [[ -e $DIR/.git ]]
 then
-    BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
-    printf "pushing to branch $BRANCH...\n"
-    git push origin $BRANCH
+# Add, commit, and push to the current branch
+    git add .
+    git commit
+
+    if [[ -z $(git status -s) ]]
+    then
+        BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+        printf "Pushing to branch $BRANCH...\n"
+        git push origin $BRANCH
+    else
+        printf "\033[0;31mAborting push since tree is not clean.\n"
+    fi
 else
-    echo "Aborting push since tree is not clean."
+    printf "\033[0;31mError: Not a git repository.\n"
 fi

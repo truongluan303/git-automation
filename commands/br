@@ -1,9 +1,16 @@
 #!/bin/bash
 
-BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+DIR=$PWD
+# check if a git repo
+if [[ -e $DIR/.git ]]
+then
+    # get the current branch
+    BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 
-# print the current branch to console
-printf "current branch: \033[0;32m$BRANCH\n"
-
-# copy current branch to clipboard
-echo $BRANCH | pbcopy
+    # print the current branch to console
+    printf "Current branch: \033[0;32m$BRANCH\n"
+    # copy current branch to clipboard
+    echo $BRANCH | pbcopy
+else
+    printf "\033[0;31mError: Not a git repository\n"
+fi
