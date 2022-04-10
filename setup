@@ -7,9 +7,17 @@ if [[ ! -d ~/$DIR ]]
 then
    mkdir ~/$DIR
 fi
+
 # add the folder to path
-echo 'export PATH="$HOME/git-auto:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+EXPORT_STR='export PATH="$HOME/git-auto:$PATH"'
+if [[ $OSTYPE == 'darwin'* ]]
+then
+   echo $EXPORT_STR >> ~/.bash_profile
+   echo $EXPORT_STR >> ~/.zshrc
+else
+   echo $EXPORT_STR >> ~/.bashrc
+fi
+exec $SHELL
 
 # copy the scripts to the git-auto folder
 cd commands
