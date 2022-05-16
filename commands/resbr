@@ -1,13 +1,8 @@
 #!/bin/bash
 
 DIR=$PWD
-# check if a git repo
-if [[ -e $DIR/.git ]]
-then
-    # Resets main branch to remote when something gets messed up. 
-    git stash
-    git fetch origin
-    git reset --hard origin/master
-else
-     printf "\033[0;31mError: Not a git repository.\n"
-fi
+
+# Resets main branch to remote when something gets messed up. 
+git stash
+git fetch origin
+git reset --hard origin/master
