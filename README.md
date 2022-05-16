@@ -29,7 +29,9 @@ Reset the main branch to remote when something gets messed up
 ---
 ## Setup
 <details><summary><strong>Linux/MacOS</strong></summary>
-Run `setup` script and you should be good to go 🙌
+  Run <code>setup</code> script and you should be good to go. 🙌
+  <br/> 
+  The <code>setup</code> script will automatically copy the <code>commands</code> folder to your home directory and also add it to the path enviroment variables
 </details>
 
 <details><summary><strong>Windows</strong></summary>
