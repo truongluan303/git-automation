@@ -1,9 +1,15 @@
 # ![icons8-github-with-cat-logo-an-online-community-for-software-development-72](https://user-images.githubusercontent.com/83048295/162607041-557590b5-bb2f-4354-8d75-9deaffe87887.png) Git Automation Scripts 
 A few scripts to automate git common usages.
 
-Why do we even need these? Well, simply to make our lives easier. With these automation scripts, we can simple use `pushbr` instead of verbosely typing `git add.`, then `git commit`, and then `git push origin current-feature-branch`. These scripts included in this repo will cover the most popular git commands that developers use daily.
+### Supported Platforms
+Currently, there are only scripts for Linux/MacOS. Windows version is coming soon!
 
-![giphy](https://user-images.githubusercontent.com/83048295/162607390-acf60ff4-e1b8-4fb5-aaad-f4f8d7f01f45.gif)
+### Why do we even need these? 
+
+Well, simply to make our lives easier. With these automation scripts, we can simple use `pushbr` instead of verbosely typing `git add.`, then `git commit`, and then `git push origin current-feature-branch`. These scripts included in this repo will cover the most popular git commands that developers use daily.
+
+Another reason is that I'm just a guy who is obssessed with automating stuff
+![automation-gif](https://media.giphy.com/media/1nR6fu93A17vWZbO9c/giphy.gif)
 
 
 ---
@@ -11,7 +17,7 @@ Why do we even need these? Well, simply to make our lives easier. With these aut
 You can look for the usages of the existing scripts below
 
 <details><summary><strong>br</strong></summary>
-Print the name of the current branch and also copy it to the clipboard.
+Print the name of the current branch and also copy it to the clipboard so that you don't have to memorize and type out your lengthy feature branch's name.
 </details>
 
 <details><summary><strong>pushbr</strong></summary>
@@ -28,12 +34,14 @@ Reset the main branch to remote when something gets messed up
 
 ---
 ## Setup
-<details><summary><strong>Linux/MacOS</strong></summary>
-  Run <code>setup</code> script and you should be good to go. 🙌
-  <br/> 
-  The <code>setup</code> script will automatically copy the <code>commands</code> folder to your home directory and also add it to the path enviroment variables
-</details>
 
-<details><summary><strong>Windows</strong></summary>
-Coming soon!
-</details>
+### Linux/MacOS
+Clone this repo to your home directory:
+
+`git clone git@github.com:truongluan303/git-automation.git`
+
+Add this repo to your `PATH` in your `bashrc` file (or depends on your shell preference you can add to your `zshrc`, `.profile`, etc.): 
+
+`echo 'export PATH="$HOME/git-automation:$PATH"' >> ~/.bashrc`
+
+To update when new features are released, simply use `git pull`.
