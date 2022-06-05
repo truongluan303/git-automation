@@ -36,12 +36,19 @@ Reset the main branch to remote when something gets messed up
 ## Setup
 
 ### Linux/MacOS
-Clone this repo to your home directory:
+Clone this repo to your home directory.
 
-`git clone git@github.com:truongluan303/git-automation.git`
+```bash
+cd ~
+git clone git@github.com:truongluan303/git-automation.git
+```
 
-Add this repo to your `PATH` in your `bashrc` file (or depends on your shell preference you can add to your `zshrc`, `.profile`, etc.): 
+Add this repo to your `PATH` in your `bashrc`. 
+If you are on MacOS, also add to your `zshrc` since `zsh` is the default shell in Mac. You may also consider adding to other setup scripts for other shells like `kshrc`, `tcshrc`, etc. 
 
-`echo 'export PATH="$HOME/git-automation/bash_commands:$PATH"' >> ~/.bashrc`
+```bash
+echo 'export PATH="$HOME/git-automation/bash_commands:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
 
 To update when new features are released, simply use `git pull`.
