@@ -42,6 +42,6 @@ Clone this repo to your home directory:
 
 Add this repo to your `PATH` in your `bashrc` file (or depends on your shell preference you can add to your `zshrc`, `.profile`, etc.): 
 
-`echo 'export PATH="$HOME/git-automation:$PATH"' >> ~/.bashrc`
+`echo 'export PATH="$HOME/git-automation/bash_commands:$PATH"' >> ~/.bashrc`
 
 To update when new features are released, simply use `git pull`.
