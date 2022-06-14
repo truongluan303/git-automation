@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CUR_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+
+if [[ "$CUR_BRANCH" == "$1" ]]
+then
+    printf "\033[0;31mCannot delete the branch currently on. Please switch to another branch first!\033[0m\n"
+    exit 1
+fi
+
+git branch -D "$1"
+
+git push origin --delete "$1"
