@@ -1,13 +1,26 @@
 #!/bin/bash
 
-CUR_BRANCH=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+# Check out to a difference existing branch since we are trying
+# to delete the current branch.
+if [[ ! -z $(git ls-remote --heads origin main) ]]; then
+    git checkout main
+elif [[ ! -z $(git ls-remote --head origin master) ]]; then
+    git checkout master
+fi
 
-if [[ "$CUR_BRANCH" == "$1" ]]
+branch=${1}
+cur_branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+
+if [[ "$cur_branch" == "$branch" ]]
 then
     printf "\033[0;31mCannot delete the branch currently on. Please switch to another branch first!\033[0m\n"
     exit 1
 fi
 
-git branch -D "$1"
+git branch -D "$branch"
 
-git push origin --delete "$1"
+existed_in_remote=$(git ls-remote --heads origin ${branch})
+
+if [[ ! -z ${existed_in_remote} ]]; then
+    git push origin --delete "$branch"
+fi
