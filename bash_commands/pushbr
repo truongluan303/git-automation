@@ -2,9 +2,18 @@
 
 DIR=$PWD
 
+echo $VAR
+
 # Add, commit, and push to the current branch
 git add .
-git commit
+
+if [ -z "$1" ]
+then
+    git commit
+else
+    git commit -m "${1}"
+fi
+
 # only push if commit was successfull
 if [[ -z $(git status -s) ]]
 then
